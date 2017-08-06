@@ -10,6 +10,7 @@ export class AppComponent {
   public title: string = '';
 
   public isImageVisible: boolean = true;
+  public currentViewName: string;
 
   public currentPhoto: number = 0;
 
@@ -29,11 +30,8 @@ export class AppComponent {
     } else {
       this.text = 'Inna Strona';
     }
-  }
 
-  public onButtonClick() {
-    this.text = '9 as String';
-    this.isImageVisible = !this.isImageVisible;
+    this.currentViewName = pageName;
   }
 
   public next(): void {
