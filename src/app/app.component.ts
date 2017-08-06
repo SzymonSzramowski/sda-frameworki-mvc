@@ -6,14 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  text: string = '';
-  title: string = '';
+  public text: string = '';
+  public title: string = '';
 
-  isImageVisible: boolean = true;
+  public isImageVisible: boolean = true;
 
-  currentPhoto: number = 0;
+  public currentPhoto: number = 0;
 
-  photos: string[] = [
+  public photos: string[] = [
     'http://www.psy.pl/wp-content/uploads/2010/04/shutterstock_141945937-e1487418626748.jpg',
     'http://www.psy.pl/wp-content/uploads/2010/04/DSC_7650-e1487418540680.jpg',
     'http://www.addestramentocaniblog.it/blog/wp-content/uploads/2014/11/addestamento-golden-retriever.jpg',
@@ -23,12 +23,20 @@ export class AppComponent {
     console.log('Pierwsza rzecz');
   }
 
-  onButtonClick() {
+  public changePage(pageName: string): void {
+    if (pageName === 'home') {
+      this.text = 'Strona glowna';
+    } else {
+      this.text = 'Inna Strona';
+    }
+  }
+
+  public onButtonClick() {
     this.text = '9 as String';
     this.isImageVisible = !this.isImageVisible;
   }
 
-  next(): void {
+  public next(): void {
     if (this.photos.length - 1 > this.currentPhoto) {
       this.currentPhoto++;
     } else {
@@ -36,7 +44,7 @@ export class AppComponent {
     }
   }
 
-  prev(): void {
+  public prev(): void {
     if (this.currentPhoto > 0) {
       this.currentPhoto--;
     } else {

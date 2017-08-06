@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,10 +9,16 @@ export class NavBarComponent implements OnInit {
   @Input()
   public navbarTekst: string = 'Hello';
 
+  @Output()
+  public subPageSelected: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit() {
+  }
+
+  public changePage(name: string): void {
+    this.subPageSelected.emit(name);
   }
 
 }
