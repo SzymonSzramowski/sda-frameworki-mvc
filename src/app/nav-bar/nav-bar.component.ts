@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
   @Input()
-  public navbarTekst: string = "Hello"
+  public navbarTekst: string = 'Hello';
 
 
   constructor() { }

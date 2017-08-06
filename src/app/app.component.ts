@@ -12,19 +12,19 @@ export class AppComponent {
   isImageVisible: boolean = true;
 
   currentPhoto: number = 0;
-  
+
   photos: string[] = [
-    "http://www.psy.pl/wp-content/uploads/2010/04/shutterstock_141945937-e1487418626748.jpg",
-    "http://www.psy.pl/wp-content/uploads/2010/04/DSC_7650-e1487418540680.jpg",
-    "http://www.addestramentocaniblog.it/blog/wp-content/uploads/2014/11/addestamento-golden-retriever.jpg",
-  ]
+    'http://www.psy.pl/wp-content/uploads/2010/04/shutterstock_141945937-e1487418626748.jpg',
+    'http://www.psy.pl/wp-content/uploads/2010/04/DSC_7650-e1487418540680.jpg',
+    'http://www.addestramentocaniblog.it/blog/wp-content/uploads/2014/11/addestamento-golden-retriever.jpg',
+  ];
 
   constructor() {
-    console.log("Pierwsza rzecz")
+    console.log('Pierwsza rzecz');
   }
 
   onButtonClick() {
-    this.text = "9 as String";
+    this.text = '9 as String';
     this.isImageVisible = !this.isImageVisible;
   }
 
