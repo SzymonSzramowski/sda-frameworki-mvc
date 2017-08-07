@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public useStyle: boolean = true;
+
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit() {
   }
 
 }
