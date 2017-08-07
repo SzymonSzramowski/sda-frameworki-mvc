@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  @ViewChild('userNameInput')
+  public userNameInput: ElementRef;
+
+  @ViewChild('userPassowordInput')
+  public userPassowordInput: ElementRef;
+
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit() {
+  }
+
+  public onLoginClick(event: MouseEvent): void {
+    event.preventDefault();
+    console.log('zaloguj', this.userNameInput.nativeElement.value,
+                      this.userPassowordInput.nativeElement.value);
   }
 
 }
