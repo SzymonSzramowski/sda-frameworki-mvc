@@ -1,15 +1,10 @@
 <app-nav-bar navbarTekst="To jest pierwszy navbar" (subPageSelected)="changePage($event)"></app-nav-bar>
 
-<div>{{ text }}</div>
-
 <div [ngSwitch]="currentViewName">
   <div *ngSwitchCase="'home'">
-    <button (click)="prev()">&lt;&lt;</button>
-    <button (click)="next()">&gt;&gt;</button>
-    <br/>
-    <img  src="{{ photos[currentPhoto] }}" style="width: 300px; height: 300px" />
+    <app-home></app-home>
   </div>
   <div *ngSwitchCase="'contact'">
-    Zadzwon do mnie!
+    <app-contact></app-contact>
   </div>
 </div>
