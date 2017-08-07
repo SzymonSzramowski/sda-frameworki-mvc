@@ -23,7 +23,7 @@ export class ChatComponent implements OnInit {
         socket.emit('sendChatMessage', 'hello');
       }, 2000);
     });
-    socket.on('reciveChatMessage', (data) => {
+    socket.on('receiveChatMessage', (data) => {
       console.log('event ', data);
     });
     socket.on('disconnect', () => {

@@ -7,7 +7,7 @@ var cors = require('cors');
 io.on('connection', function (client) {
   console.log('client added:', client.id);
   client.on('sendChatMessage', function (data) {
-    io.emit("reciveChatMessage", data);
+    io.emit("receiveChatMessage", data);
   });
   client.on('disconnect', function () {
     console.log('client removed:', client.id);
