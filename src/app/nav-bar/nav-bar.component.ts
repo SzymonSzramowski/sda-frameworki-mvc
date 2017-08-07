@@ -17,8 +17,4 @@ export class NavBarComponent implements OnInit {
   public ngOnInit() {
   }
 
-  public changePage(name: string): void {
-    this.subPageSelected.emit(name);
-  }
-
 }
