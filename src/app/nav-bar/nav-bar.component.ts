@@ -1,4 +1,6 @@
+import { ActivatedRoute, ParamMap, Router, UrlSegment } from '@angular/router';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,19 +8,12 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  @Input()
   public navbarTekst: string = 'Hello';
-
-  @Output()
-  public subPageSelected: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
   public ngOnInit() {
-  }
 
-  public changePage(name: string): void {
-    this.subPageSelected.emit(name);
   }
 
 }
