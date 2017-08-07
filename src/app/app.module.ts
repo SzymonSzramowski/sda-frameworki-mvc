@@ -9,6 +9,8 @@ import { HomeComponent } from './views/home/home.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './views/login/login.component';
 
+import { CookieService } from 'ng2-cookies';
+
 
 const appRoutes: Routes = [
   { path: '',
@@ -35,7 +37,7 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
   ],
-  providers: [IsLoggedInGuard],
+  providers: [IsLoggedInGuard, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
