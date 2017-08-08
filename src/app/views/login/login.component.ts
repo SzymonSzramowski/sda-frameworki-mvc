@@ -1,3 +1,4 @@
+import { LoginService } from '../../login-service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -7,21 +8,28 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild('userNameInput')
-  public userNameInput: ElementRef;
+  constructor(private loginService: LoginService) {
+  }
 
-  @ViewChild('userPassowordInput')
-  public userPassowordInput: ElementRef;
+  public loginWasCorrect: boolean = false;
+  public loginWasInCorrect: boolean = false;
 
-  constructor() { }
 
   public ngOnInit() {
   }
 
-  public onLoginClick(event: MouseEvent): void {
+  public onLoginClick(event: MouseEvent, login: string, password: string): void {
     event.preventDefault();
-    console.log('zaloguj', this.userNameInput.nativeElement.value,
-                      this.userPassowordInput.nativeElement.value);
+
+    const logginSuccess: boolean = this.loginService.login(login, password);
+
+    if (logginSuccess) {
+      this.loginWasCorrect = true;
+      this.loginWasInCorrect = false;
+    } else {
+      this.loginWasCorrect = false;
+      this.loginWasInCorrect = true;
+    }
   }
 
 }

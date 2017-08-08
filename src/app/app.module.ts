@@ -1,3 +1,4 @@
+import { LoginService } from './login-service';
 import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
   ],
-  providers: [IsLoggedInGuard],
+  providers: [IsLoggedInGuard, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
