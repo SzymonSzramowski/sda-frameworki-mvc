@@ -1,4 +1,4 @@
-import { LoginService } from '../../login-service';
+import { LoginService } from '../../services/login-service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({

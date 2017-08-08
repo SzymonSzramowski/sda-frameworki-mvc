@@ -1,4 +1,5 @@
-import { LoginService } from './login-service';
+import { PostService } from './services/posts-service';
+import { LoginService } from './services/login-service';
 import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +11,9 @@ import { HomeComponent } from './views/home/home.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './views/login/login.component';
 
+import { CookieService } from 'ng2-cookies';
+import { PostComponent } from './views/home/post/post.component';
+import { MessageComponent } from './views/home/message/message.component';
 
 const appRoutes: Routes = [
   { path: '',
@@ -27,7 +31,9 @@ const appRoutes: Routes = [
     NavBarComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    PostComponent,
+    MessageComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -36,7 +42,11 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
   ],
-  providers: [IsLoggedInGuard, LoginService],
+  providers: [
+    IsLoggedInGuard,
+    LoginService,
+    CookieService,
+    PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
