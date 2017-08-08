@@ -20,7 +20,7 @@ export class PostComponent implements OnInit {
   public ngOnInit() {
   }
 
-  public onAdd(event: MouseEvent): void {
+  public onSaveButtonClicked(event: MouseEvent): void {
     event.preventDefault();
 
     const post: Post = {

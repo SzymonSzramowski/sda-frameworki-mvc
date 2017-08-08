@@ -1,12 +1,19 @@
 <form class="form box">
     <div class="form-group">
         <label for="inputTitle">Post Title</label>
-        <input #title type="email" class="form-control" id="inputTitle" aria-describedby="titleHelp" placeholder="Podaj tytuł">
-        <small id="titleHelp" class="form-text text-muted">Tytuł jest wymagany</small>
+        <input #title
+            class="form-control" 
+            id="inputTitle" 
+            aria-describedby="titleHelp" 
+            placeholder="Podaj tytuł">
+        <small id="titleHelp" class="form-text text-muted">{{title.value}}</small>
     </div>
     <div class="form-group">
         <label for="messageTextarea">Wiadomość</label>
         <textarea #message class="form-control" id="messageTextarea" rows="3"></textarea>
     </div>
-    <button type="submit" (click)="onAdd($event)" class="btn btn-primary">Zapisz</button>
+    <button
+        type="submit"
+        (click)="onSaveButtonClicked($event)" 
+        class="btn btn-primary">Zapisz</button>
 </form>

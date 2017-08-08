@@ -20,6 +20,7 @@ const appRoutes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full',
   },
+  { path: 'home/:page', component: HomeComponent, canActivate: [IsLoggedInGuard] },
   { path: 'home', component: HomeComponent, canActivate: [IsLoggedInGuard] },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
