@@ -7,14 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  public currentViewName: string;
-
   constructor() {
-    console.log('App Start!');
-  }
-
-  public changePage(pageName: string): void {
-    this.currentViewName = pageName;
-    console.log(pageName);
+    console.log('App Start');
   }
 }

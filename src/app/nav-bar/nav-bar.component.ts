@@ -1,3 +1,4 @@
+import { LoginService } from '../services/login-service';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -12,13 +13,13 @@ export class NavBarComponent implements OnInit {
   @Output()
   public subPageSelected: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   public ngOnInit() {
   }
 
-  public changePage(name: string): void {
-    this.subPageSelected.emit(name);
+  public logout() {
+    this.loginService.logout();
   }
 
 }
