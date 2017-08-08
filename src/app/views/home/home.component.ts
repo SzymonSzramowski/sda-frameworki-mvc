@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private postService: PostService) { }
+  constructor(public postService: PostService) { }
 
   public ngOnInit() {
   }
