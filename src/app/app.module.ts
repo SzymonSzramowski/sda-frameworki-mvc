@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { PostService } from './services/posts-service';
 import { LoginService } from './services/login-service';
 import { IsLoggedInGuard } from './guards/is-logged-in.guard';
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
+    HttpModule,
   ],
   providers: [
     IsLoggedInGuard,
