@@ -1,3 +1,4 @@
+import { NgModel } from '@angular/forms/src/directives';
 import { Post } from '../../../model/post';
 import { PostService } from '../../../services/posts-service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
@@ -11,9 +12,6 @@ export class PostComponent implements OnInit {
   @ViewChild('title')
   public titleInput: ElementRef;
 
-   @ViewChild('form')
-  public form: ElementRef;
-
   @ViewChild('message')
   public messageInput: ElementRef;
 
@@ -24,10 +22,7 @@ export class PostComponent implements OnInit {
   }
 
 
-  public onSaveButtonClicked(event: MouseEvent): void {
-      /*
-    event.preventDefault();
-
+  public onSumbit(): void {
     const post: Post = {
       title: this.titleInput.nativeElement.value,
       message: this.messageInput.nativeElement.value,
@@ -37,10 +32,6 @@ export class PostComponent implements OnInit {
     this.messageInput.nativeElement.value = '';
 
     this.postService.add(post);
-     */
-  }
 
-  public onSumbit() {
-    console.log('log', this.form);
   }
 }

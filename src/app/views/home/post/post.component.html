@@ -5,7 +5,7 @@
             ngModel
             name="title"
             required
-            #title="ngModel"
+            #title
             class="form-control" 
             id="inputTitle" 
             aria-describedby="titleHelp" 
@@ -19,6 +19,5 @@
     <button
         type="submit"
         [disabled]="!form.valid"
-        (click)="onSaveButtonClicked($event)" 
         class="btn btn-primary">Zapisz</button>
 </form>
