@@ -17,7 +17,14 @@ function loadModel() {
             console.log("new model created");
             return;
         } 
-        model = JSON.parse(data);
+        try {
+            model = JSON.parse(data);
+        }catch (err){
+            model = {};
+            model.posts = [];
+            console.log("new model created");
+        }
+        
         console.log("model file was loaded!");
     });
 }
