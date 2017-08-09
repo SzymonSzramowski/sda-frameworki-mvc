@@ -2,10 +2,11 @@ var app = require('express')();
 var server = require('http').createServer(app);
 var cors = require('cors');
 var fs = require('fs');
+var bodyParser = require('body-parser');
 
 // rest
 
-var model; 
+var model;
 
 function loadModel() {
     var file = __dirname + '/server_db.json';
@@ -16,15 +17,15 @@ function loadModel() {
             model.posts = [];
             console.log("new model created");
             return;
-        } 
+        }
         try {
             model = JSON.parse(data);
-        }catch (err){
+        } catch (err) {
             model = {};
             model.posts = [];
             console.log("new model created");
         }
-        
+
         console.log("model file was loaded!");
     });
 }
@@ -43,11 +44,14 @@ function saveModel() {
 
 function start() {
     loadModel();
-    
+
     server.listen(3000);
 
     app.use(cors());
     app.options('*', cors());
+    app.use(bodyParser.json()); // support json encoded bodies
+    app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 }
 
 start();
@@ -60,8 +64,8 @@ app.get('/', function (req, res) {
 
 
 app.post('/wall', function (req, res) {
-    model.posts.push(req.params);
-    console.log('Added post', req.params)
+    model.posts.push(req.body);
+    console.log('Added post', req.body)
     res.send({ success: true});
     saveModel();
 });
@@ -73,7 +77,7 @@ app.get('/wall', function (req, res) {
 
 app.post('/login', function (req, res) {
     var authorized = false;
-    if (req.params.login && req.params.login == 'Szymon') {
+    if (req.body.login && req.body.login == 'Szymon') {
         authorized = true;
     }
     res.send({ auhorized: authorized });
