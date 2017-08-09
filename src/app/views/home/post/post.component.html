@@ -1,12 +1,16 @@
-<form class="form box">
+<form class="form box" #form="ngForm" (ngSubmit)="onSumbit()">
     <div class="form-group">
         <label for="inputTitle">Post Title</label>
-        <input #title
+        <input
+            ngModel
+            name="title"
+            required
+            #title="ngModel"
             class="form-control" 
             id="inputTitle" 
             aria-describedby="titleHelp" 
             placeholder="Podaj tytuł">
-        <small id="titleHelp" class="form-text text-muted">{{title.value}}</small>
+        <small *ngIf="!title.valid && title.touched" id="titleHelp" class="form-text text-muted">Tytuł jest wymagany</small>
     </div>
     <div class="form-group">
         <label for="messageTextarea">Wiadomość</label>
@@ -14,6 +18,7 @@
     </div>
     <button
         type="submit"
+        [disabled]="!form.valid"
         (click)="onSaveButtonClicked($event)" 
         class="btn btn-primary">Zapisz</button>
 </form>

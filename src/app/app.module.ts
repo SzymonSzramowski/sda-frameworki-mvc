@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { PostService } from './services/posts-service';
 import { LoginService } from './services/login-service';
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     HttpModule,
+    FormsModule,
   ],
   providers: [
     IsLoggedInGuard,

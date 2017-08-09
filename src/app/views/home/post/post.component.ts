@@ -11,6 +11,9 @@ export class PostComponent implements OnInit {
   @ViewChild('title')
   public titleInput: ElementRef;
 
+   @ViewChild('form')
+  public form: ElementRef;
+
   @ViewChild('message')
   public messageInput: ElementRef;
 
@@ -20,7 +23,9 @@ export class PostComponent implements OnInit {
   public ngOnInit() {
   }
 
+
   public onSaveButtonClicked(event: MouseEvent): void {
+      /*
     event.preventDefault();
 
     const post: Post = {
@@ -32,5 +37,10 @@ export class PostComponent implements OnInit {
     this.messageInput.nativeElement.value = '';
 
     this.postService.add(post);
+     */
+  }
+
+  public onSumbit() {
+    console.log('log', this.form);
   }
 }
