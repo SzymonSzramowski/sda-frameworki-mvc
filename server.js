@@ -36,16 +36,7 @@ function saveModel() {
 
 function start() {
     loadModel();
-
-    io.on('connection', function (client) {
-  console.log('client added:', client.id);
-  client.on('sendChatMessage', function (data) {
-    io.emit("receiveChatMessage", data);
-  });
-  client.on('disconnect', function () {
-    console.log('client removed:', client.id);
-  });
-});
+    
     server.listen(3000);
 
     app.use(cors());
