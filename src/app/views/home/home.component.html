@@ -1,8 +1,13 @@
-<p>
-  home works!
-</p>
-
-
 <app-post></app-post>
 
-<app-message *ngFor="let post of postService.posts" [title]="post.title" [message]="post.message"></app-message>
+<div *ngFor="let post of postService.posts; let i = index">
+  <app-message *ngIf="isVisible(i)" [title]="post.title" [message]="post.message" style="display: block;">
+  </app-message>
+</div>
+
+<app-paginator2 
+  *ngIf="postService.posts.length>5"
+  [currentPage]="currentPageInHome"
+  [numberOfPages]="getNumberOfPages()"
+  (pageChanged)="onPageChanged2($event)">
+</app-paginator2>

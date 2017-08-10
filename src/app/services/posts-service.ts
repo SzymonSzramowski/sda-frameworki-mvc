@@ -7,6 +7,5 @@ export class PostService {
 
     public add(post: Post): void {
         this.posts.push(post);
-        console.log(this.posts);
     }
 }

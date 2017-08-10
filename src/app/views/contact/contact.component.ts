@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, Observer, Subscription } from 'rxjs/Rx';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  private subscription: Subscription;
 
-  ngOnInit() {
+  public licznik = Observable.interval(1000);
+
+  public ngOnInit() {
+    this.subscription = this.licznik.subscribe((time: number) => {
+      console.log(time);
+    });
+  }
+
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

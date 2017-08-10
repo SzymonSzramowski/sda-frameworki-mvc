@@ -8,10 +8,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  @ViewChild("title")
+  @ViewChild('title')
   public titleInput: ElementRef;
 
-  @ViewChild("message")
+  @ViewChild('message')
   public messageInput: ElementRef;
 
 
@@ -20,7 +20,8 @@ export class PostComponent implements OnInit {
   public ngOnInit() {
   }
 
-  public onAdd(): void {
+  public onSaveButtonClicked(event: MouseEvent): void {
+    event.preventDefault();
 
     const post: Post = {
       title: this.titleInput.nativeElement.value,
