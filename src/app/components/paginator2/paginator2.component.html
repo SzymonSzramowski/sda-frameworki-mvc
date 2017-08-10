@@ -1,0 +1,29 @@
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item" 
+      (click)="prev($event)"
+      [ngClass]="{disabled: currentPage==1}">
+      <span class="page-link">Previous</span>
+    </li>
+    <li class="page-item"
+    (click)="goToPage($event, getButtonNumber(1))"
+    *ngIf="getButtonNumber(1)<=numberOfPages"
+     [ngClass]="{active: getButtonNumber(1)==currentPage}">
+     <a class="page-link" href="#">{{getButtonNumber(1)}}</a></li>
+    <li class="page-item"
+     (click)="goToPage($event, getButtonNumber(2))"
+     *ngIf="getButtonNumber(2)<=numberOfPages"
+     [ngClass]="{active: getButtonNumber(2)==currentPage}">
+     <a class="page-link" href="#">{{getButtonNumber(2)}}</a></li>
+    <li class="page-item"
+     (click)="goToPage($event, getButtonNumber(3))"
+     *ngIf="getButtonNumber(3)<=numberOfPages"
+     [ngClass]="{active: getButtonNumber(3)==currentPage}">
+     <a class="page-link" href="#">{{getButtonNumber(3)}}</a></li>
+    <li class="page-item"
+    (click)="next($event)"
+     [ngClass]="{disabled: currentPage>=numberOfPages}">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
