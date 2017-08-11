@@ -16,6 +16,7 @@ import { LoginComponent } from './views/login/login.component';
 import { CookieService } from 'ng2-cookies';
 import { PostComponent } from './views/home/post/post.component';
 import { MessageComponent } from './views/home/message/message.component';
+import { Paginator2Component } from './components/paginator2/paginator2.component';
 
 const appRoutes: Routes = [
   { path: '',
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     ContactComponent,
     LoginComponent,
     PostComponent,
-    MessageComponent
+    MessageComponent,
+    Paginator2Component
   ],
   imports: [
     RouterModule.forRoot(
